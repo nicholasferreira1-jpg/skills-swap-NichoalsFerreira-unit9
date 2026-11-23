@@ -1,38 +1,15 @@
-const skills = [
-    {
-        title: 'Web Design',
-        category: 'Programming',
-        description: 'Build your first website with HTML and CSS.',
-        price: 20,
-        tutor: 'Estavao',
-        formats: ['In-person', 'Virtual']
-    },
-    {
-        title: 'Python Tutoring',
-        category: 'Programming',
-        description: 'Learn Python basics with hands-on practice problems.',
-        price: 25,
-        tutor: 'Vinicius Junior',
-        formats: ['Virtual']
-    },
-    {
-        title: 'Guitar Lessons',
-        category: 'Music',
-        description: 'Learn chords and your first songs, beginners welcome.',
-        price: 15,
-        tutor: 'Neymar',
-        formats: ['In-person']
-    },
-    {
-        title: 'Resume Review',
-        category: 'Career',
-        description: 'Get your resume ready for internships and interviews.',
-        price: 0,
-        tutor: 'Raphinha',
-        formats: ['Virtual']
-    }
-]
+// Skill data (from database)
+let skills = [];
 
+async function loadSkills() {
+    try {
+        const data = await window.apiService.fetchSkills();
+        return data;
+    } catch (error) {
+        console.error('Error loading skills:', error);
+        return [];
+    }
+}
 const grid = document.getElementById('skill-grid');
 
 function renderSkills(skillList, container = grid) {
@@ -42,7 +19,8 @@ function renderSkills(skillList, container = grid) {
         const card = document.createElement('article');
         card.className = 'skill-card';
 
-        const badges = skill.formats
+        const formats = skill.formats || [];
+        const badges = formats
             .map(format => `<span class="badge">✓ ${format}</span>`)
             .join('');
 
@@ -82,7 +60,10 @@ filterButtons.forEach(button => {
 
 });
 
-renderSkills(skills);
+document.addEventListener('DOMContentLoaded', async () => {
+    skills = await loadSkills();
+    renderSkills(skills);
+});
 
 const rateInput = document.getElementById('rate-input');
 const hoursInput = document.getElementById('hours-input');
