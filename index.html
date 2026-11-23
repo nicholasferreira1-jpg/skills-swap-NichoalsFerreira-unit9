@@ -35,6 +35,9 @@
                 <button class="filter-btn" data-category="Music">Music</button>
                 <button class="filter-btn" data-category="Career">Career</button>
             </div>
+            <div id="loading">Loading skills...</div>
+            <div id="error" style="display: none;"></div>
+            <div class="skill-grid" id="skill-grid"></div>
             <div class="skills-grid" id="skill-grid">
             </div>
         </section>
@@ -67,8 +70,18 @@
                 <button id="match-btn">Find My Match</button>
             </div>
 
-                <div class="skill-grid" id="match-results"></div>
+            <div class="skill-grid" id="match-results"></div>
         </section>
+        <form id="skill-form">
+            <input type="text" id="skill-title" placeholder="Title" required>
+            <input type="text" id="skill-category" placeholder="Category" required>
+            <input type="number" id="skill-price" placeholder="Price" required>
+            <input type="text" id="skill-description" placeholder="Description" required>
+            <input type="text" id="skill-provider" placeholder="Your name" required>
+            <button type="submit">Add Skill</button>
+        </form>
+        <div id="success-message" style="display: none;"></div>
+        <div id="error-message" style="display: none;"></div>
 
     </main>
     <footer>
@@ -81,6 +94,7 @@
         </nav>
     </footer>
     <script src="skillswap-functions.js"></script>
+    <script src="api-service.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -270,3 +270,65 @@ footer h2 {
     margin: 20px auto 0;
     text-align: left;
 }
+
+/* ===== Add skill form ===== */
+#skill-form {
+    max-width: 400px;
+    margin: 20px auto 0;
+    padding: 24px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#skill-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+#skill-form input:focus {
+    outline: none;
+    border-color: #2b4c7e;
+}
+
+#skill-form button {
+    background-color: #f28c28;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#skill-form button:hover {
+    background-color: #d9761a;
+}
+
+/* Success and error messages */
+#success-message,
+#error-message {
+    max-width: 400px;
+    margin: 12px auto 0;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#success-message {
+    background-color: #e6f4ea;
+    color: #1e7b34;
+}
+
+#error-message {
+    background-color: #fdecea;
+    color: #b3261e;
+}
