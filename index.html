@@ -35,6 +35,9 @@
                 <button class="filter-btn" data-category="Music">Music</button>
                 <button class="filter-btn" data-category="Career">Career</button>
             </div>
+            <div id="loading">Loading skills...</div>
+            <div id="error" style="display: none;"></div>
+            <div class="skill-grid" id="skill-grid"></div>
             <div class="skills-grid" id="skill-grid">
             </div>
         </section>
@@ -74,6 +77,7 @@
             <input type="text" id="skill-category" placeholder="Category" required>
             <input type="number" id="skill-price" placeholder="Price" required>
             <input type="text" id="skill-description" placeholder="Description" required>
+            <input type="text" id="skill-provider" placeholder="Your name" required>
             <button type="submit">Add Skill</button>
         </form>
         <div id="success-message" style="display: none;"></div>

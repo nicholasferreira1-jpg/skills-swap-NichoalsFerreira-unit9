@@ -67,7 +67,7 @@ function createSkillCard(skill) {
             <h3 class="title">${skill.title}</h3>
             <p class="description">${skill.description}</p>
             <p class="price">$${skill.price}/hour</p>
-            <p class="provider-name">Tutor: ${skill.tutor || 'Not listed'}</p>
+            <p class="provider-name">Tutor: ${skill.provider || 'Not listed'}</p>
             <div class="card-footer">
                 <div class="format-badges">${badges}</div>
             </div>
@@ -78,7 +78,7 @@ function createSkillCard(skill) {
         document.querySelectorAll('.skill-card')
             .forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
-        alert(`${skill.title}\nTutor: ${skill.tutor || 'Not listed'}\nPrice: $${skill.price}/hour`);
+        alert(`${skill.title}\nTutor: ${skill.provider  || 'Not listed'}\nPrice: $${skill.price}/hour`);
     });
 
     return card;
@@ -101,7 +101,8 @@ async function handleSkillSubmit(event) {
         title: document.getElementById('skill-title').value,
         category: document.getElementById('skill-category').value,
         price: parseFloat(document.getElementById('skill-price').value),
-        description: document.getElementById('skill-description').value
+        description: document.getElementById('skill-description').value,
+        provider: document.getElementById('skill-provider').value
     };
 
     try {
